@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthServices {
     private final MockClient client;
-    public Object authService(SampleRequest req) throws Exception{
-        LinkedTreeMap response = client.authentication(req);
+    public Object authService(SampleRequest sampleRequest) throws Exception{
+        LinkedTreeMap response = client.authentication(sampleRequest);
         return response;
     }
 }

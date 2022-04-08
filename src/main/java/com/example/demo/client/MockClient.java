@@ -1,6 +1,7 @@
 package com.example.demo.client;
 
 import com.example.demo.dto.SampleRequest;
+import com.example.demo.dto.UserRequest;
 import com.google.gson.internal.LinkedTreeMap;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -11,5 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface MockClient {
 
     @PostMapping(value ="auth/login", consumes = MediaType.APPLICATION_JSON_VALUE)
-    LinkedTreeMap authentication(@RequestBody SampleRequest req) throws Exception;
+    LinkedTreeMap authentication(@RequestBody SampleRequest sampleRequest) throws Exception;
+
+    @PostMapping(value = "auth/user", consumes = MediaType.APPLICATION_JSON_VALUE)
+    LinkedTreeMap userAuthentication(@RequestBody UserRequest userRequest) throws Exception;
 }
