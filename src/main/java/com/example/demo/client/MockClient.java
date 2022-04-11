@@ -15,6 +15,6 @@ public interface MockClient {
     @PostMapping(value ="auth/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     LinkedTreeMap authentication(@RequestBody SampleRequest sampleRequest) throws Exception;
 
-    @PostMapping(value = "auth/user", consumes = MediaType.APPLICATION_JSON_VALUE)
-    LinkedTreeMap userAuthentication(@RequestBody UserRequest userRequest) throws Exception;
+    @PostMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
+    LinkedTreeMap createUser(@RequestBody UserRequest userRequest) throws Exception;
 }

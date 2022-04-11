@@ -16,7 +16,7 @@ public class AuthContorller {
     private final AuthServices authServices;
 
     @RequestMapping(value="/login",  method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseBody
+    @ResponseBody
     public Object openTabunganEmas(@RequestBody SampleRequest sampleRequest, BindingResult result) throws Exception{
         return authServices.authService(sampleRequest);
     }
