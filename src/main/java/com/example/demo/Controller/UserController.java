@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -19,8 +16,8 @@ public class UserController {
     private final UserServices userService;
 
     @RequestMapping(value = "/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-
-    public Object openEmas(@RequestBody UserRequest userRequest, BindingResult bindingResult) throws Exception{
+//    @ResponseBody
+    public Object openTabunganEmas(@RequestBody UserRequest userRequest, BindingResult result) throws Exception{
         return userService.userService(userRequest);
     }
 
