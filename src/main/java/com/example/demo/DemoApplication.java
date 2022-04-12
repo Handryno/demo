@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class DemoApplication implements CommandLineRunner {
+public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
@@ -22,18 +22,5 @@ public class DemoApplication implements CommandLineRunner {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Override
-    public void run(String... args) throws Exception {
-        Employee employee = new Employee();
-        employee.setFirstName("Handry");
-        employee.setLastName("Novianto");
-        employee.setEmail("handry@gmail.com");
-        employeeRepository.save(employee);
 
-        Employee employee1 = new Employee();
-        employee1.setFirstName("Arles");
-        employee1.setLastName("Octavianus");
-        employee1.setEmail("Arles@gmail.com");
-        employeeRepository.save(employee1);
-    }
 }

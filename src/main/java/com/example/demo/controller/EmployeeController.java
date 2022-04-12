@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.Employee;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,4 +25,10 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeRepository.save(employee);
     }
+
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable long id){
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id" + id));
+        return ResponseEntity.ok(employee);
+    }
+
 }
